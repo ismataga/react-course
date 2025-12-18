@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+    <script src="https://unpkg.com/dayjs@1.11.10/dayjs.min.js"></script>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="react-basic.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <p id="time"></p>
+    ;
+
+    <script type="text/babel">
+      //ex 1
+      // const div = (
+      //   <div>
+      //     <button>"Good job"</button>
+      //   </div>
+      // );
+
+      //ex 2
+
+      // const div = (
+      //   <div>
+      //     <p>My name is {"Ismat"}</p>
+      //   </div>
+      // );
+
+      //ex 3
+
+      // const div = (
+      //   <div>
+      //     <p>Cotton Socks</p>
+      //     <p>Price: {"$10"}</p>
+
+      //     <button>Add to Cart</button>
+      //   </div>
+      // );
+
+      //ex 4
+
+      // const productCost = 10 + 2 * 8;
+      // console.log(productCost);
+
+      //  const div = (
+      //    <div>
+      //      <p>Product cost $: {productCost}</p>
+      //    </div>
+      //  );
+
+      //ex 5
+
+      // const productCost = 10 + 2 * 8;
+      // const shippingCost = 5;
+
+      // console.log(productCost);
+
+      // const div = (
+      //   <div>
+      //     <p>Product Cost $: {productCost}</p>
+      //     <p>ShippingCost $: {shippingCost}</p>
+
+      //     <p>Total cost $: {productCost + shippingCost}</p>
+      //     <button>Place your order</button>
+      //   </div>
+      // );
+
+      //ex 6
+
+      const container = document.querySelector(".js-container");
+      const root = ReactDOM.createRoot(container);
+
+      // Update the clock every second
+      setInterval(() => {
+        const currentTime = dayjs().format("HH:mm:ss");
+        const message = `Current time: ${currentTime}`;
+
+        root.render(message); // Display using React
+      }, 1000);
+    </script>
+  </body>
+</html>

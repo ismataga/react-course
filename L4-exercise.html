@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React ON Button</title>
+
+    <!-- CSS -->
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+
+      .on-button {
+        background-color: rgb(25, 135, 84);
+        color: white;
+        border: none;
+        padding: 14px 32px;
+        font-size: 22px;
+        font-weight: bold;
+        border-radius: 12px;
+        cursor: pointer;
+      }
+
+      .off-button {
+        background-color: rgb(220, 53, 69);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- React root -->
+    <div class="js-container"></div>
+
+    <!-- React + Babel -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <!-- React code -->
+    <script type="text/babel">
+      function App() {
+        const [isButtonOn, setIsButtonOn] = React.useState(true);
+
+        function switchButtonOn() {
+          // Another solution is: setIsButtonOn(!isButtonOn);
+          if (isButtonOn) {
+            setIsButtonOn(false);
+          } else {
+            setIsButtonOn(true);
+          }
+        }
+
+        return (
+          <button
+            className={isButtonOn ? "on-button" : "off-button"}
+            onClick={switchButtonOn}
+          >
+            {isButtonOn ? "ON" : "OFF"}
+          </button>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
