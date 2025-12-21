@@ -1,11 +1,10 @@
 import dayjs from "dayjs";
 import { formatMoney } from "../../utils/Money";
 
-export function DeliveryOptions({ deliveryOptions, cartItem }) {
+export function DeliveryOptions({ cartItem, deliveryOptions }) {
   return (
     <div className="delivery-options">
       <div className="delivery-options-title">Choose a delivery option:</div>
-
       {deliveryOptions.map((deliveryOption) => {
         let priceString = "FREE Shipping";
 
@@ -17,14 +16,13 @@ export function DeliveryOptions({ deliveryOptions, cartItem }) {
           <div key={deliveryOption.id} className="delivery-option">
             <input
               type="radio"
+              checked={deliveryOption.id === cartItem.deliveryOptionId}
               className="delivery-option-input"
               name={`delivery-option-${cartItem.productId}`}
-              checked={deliveryOption.id === cartItem.deliveryOptionId}
-              readOnly
             />
             <div>
               <div className="delivery-option-date">
-                {dayjs(deliveryOption.estimateDeliveryTimeMs).format(
+                {dayjs(deliveryOption.estimatedDeliveryTimeMs).format(
                   "dddd, MMMM D"
                 )}
               </div>
